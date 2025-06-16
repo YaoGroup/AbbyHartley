@@ -11,8 +11,8 @@ For downloading and calibrating IceSAT-2 and Bedmap thickness data (in preparati
 **Training the PINN:** To solve for ice shelf viscosity, I modified the [train_pinns_iso example notebook](https://github.com/YaoGroup/DIFFICE_jax/blob/main/examples/colab/train_pinns_iso.ipynb) from diffice_JAX. My modified notebooks are *train_pinns_iso_ATL06_amery.ipynb* (for IceSAT-2) and *train_pinns_iso_bedmap.ipynb* (for Bedmap). 
 
 The big changes are in the "Data Loading" section, as I adjusted the original grid to overlap the Bedmap and IceSAT-2 tracks respectively and injected these thickness tracks into the PINN directly. 
-Another addition are the functions *save_training_snapshots* and *create_animation_gifs*, which are used to save plots of PINN-inferred viscosity and residuals through iterations of optimization and animate them into videos. Iseally this code should be run on Sherlock with 100k Adam iterations and 200k L-BFGS, saving snapshots every 1000 iterations.
+Another addition are the functions *save_training_snapshots* and *create_animation_gifs*, which are used to save plots of PINN-inferred viscosity and residuals through iterations of optimization and animate them into videos. Ideally this code should be run on with GPUs on Sherlock with 100k Adam iterations and 200k L-BFGS, saving snapshots every 1000 iterations.
 
-Example videos created from these snapshots are *viscosity_Adam_training.mp4*, *e1_residual_Adam_training.mp4*, and *e1_residual_Adam_training.mp4*. These were created by PINNs trained on Bedmap data.
+Example videos created from these snapshots include *viscosity_Adam_training.mp4*, *e1_residual_Adam_training.mp4*, and *e1_residual_Adam_training.mp4*. These were created by PINNs trained on Bedmap data.
 
 **Extra:** *gpkg_to_gpq.py* converts gpkg files to gpqs :-)
